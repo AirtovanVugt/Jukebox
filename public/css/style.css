@@ -1,4 +1,71 @@
-p {
-  color: blue;
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-image: url("../img/background.png");
+  background-repeat: no-repeat;
+  height: 100hw;
+  width: 100%;
+}
+
+.centerV {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.hoofdLetters {
+  text-transform: uppercase;
+}
+
+.inloggen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: rgba(14, 108, 61, 0.297);
+  width: 700px;
+  padding: 20px;
+  border-radius: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.inloggen h1 {
+  text-align: center;
+}
+
+.inloggen label {
+  margin-bottom: 2px;
+  margin-top: 20px;
+}
+
+.inloggen input {
+  width: 100%;
+  padding: 5px;
+  border-radius: 20px;
+  border: 2px black solid;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.inloggen h1, .inloggen label {
+  color: #d2d1d1;
+  display: block;
+}
+
+.inloggen button {
+  background-color: #247424;
+  color: white;
+  margin-top: 20px;
+  border-radius: 20px;
+  padding: 5px 20px;
+  border: 2px black solid;
 }
 /*# sourceMappingURL=style.css.map */
