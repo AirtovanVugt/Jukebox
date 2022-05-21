@@ -31,7 +31,9 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/create/(:alphanum)', 'Home::createAccount/$1');
+
+$routes->get('/create/(:alphanum)', 'Home::createAccountPage/$1');
+$routes->get('/inloggen', 'Home::index');
 
 /*
  * --------------------------------------------------------------------

@@ -10,6 +10,21 @@ body{
     width: 100%;
 }
 
+#warning{
+    background-color: red;
+    text-align: center;
+    padding: 10px 20px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    border-radius: 20px;
+    transition: transform 1s;
+}
+
+#warning.warningShow{
+    transform: translate(-50%, 10px);
+}
+
 .centerV{
     display: flex;
     justify-content: center;
@@ -19,45 +34,4 @@ body{
     text-transform: uppercase;
 }
 
-.inloggen{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(14, 108, 61, 0.297);
-    width: 700px;
-    padding: 20px;
-    border-radius: 20px; 
-    box-sizing: border-box;
-
-    h1{
-
-        text-align: center;
-    }
-    label{
-        margin-bottom: 2px;
-        margin-top: 20px;
-    }
-
-    input{
-        width: 100%;
-        padding: 5px;
-        border-radius: 20px;
-        border: 2px black solid;
-        box-sizing: border-box;
-    }
-
-    h1, label{
-        color: rgb(210, 209, 209);
-        display: block;
-    }
-
-    button{
-        background-color: rgb(36, 116, 36);
-        color: white;
-        margin-top: 20px;
-        border-radius: 20px;
-        padding: 5px 20px;
-        border: 2px black solid;
-    }
-}
+@import "inloggen";

@@ -1,23 +1,52 @@
 <?= $this->include('layouts/header') ?>
 
-    <div class="inloggen">
-        <h1 class="hoofdLetters">inloggen</h1>
-        <?= form_open("/Admin/Users/update/") ?>
-            <label class="label" for="Name">Name</label>
-            <input class="input" type="text" name="Name">
+<header>
+    <?php
+        if(isset($create)){
+    ?>
+        <a href="/inloggen"><button class="hoofdLetters">inloggen</button></a>
+    <?php
+        }
+        else{
+    ?>
+        <a href="/create/createAccount"><button class="hoofdLetters">create account</button></a>
+    <?php
+        }
+    ?>
+</header>
 
-            <label class="label" for="Name">Password</label>
-            <input class="input" type="password" name="Password">
+<div class="inloggen">
+    <h1 class="hoofdLetters"><?php if(isset($create)){ ?>create account<?php } else{ ?>inloggen<?php } ?></h1>
+    <?php
+        if(isset($create)){
+            echo form_open("/Home/createAccount");
+        }
+        else{
+            echo form_open("/Home/inloggen");
+        }
+    ?>
+        <label class="label" for="UserName">Name</label>
+        <input class="input" type="text" name="UserName">
 
-            <div class="centerV">
-                <button class="hoofdLetters">inloggen</button>
-            </div>
-        </form>
-    </div>
+        <label class="label" for="Name">Password</label>
+        <input class="input" type="password" name="Password">
 
+        <div class="centerV">
+            <button class="hoofdLetters"><?php if(isset($create)){ ?> create account <?php } else{ ?> inloggen <?php } ?></button>
+        </div>
+    </form>
+</div>
 </body>
 </html>
 
 <script>
-    
+    var warning = document.getElementById("warning");
+
+    if(warning != null){
+        warning.classList.add("warningShow");
+
+        setTimeout(function(){
+            warning.classList.remove("warningShow");
+        }, 5000);
+    }
 </script>
