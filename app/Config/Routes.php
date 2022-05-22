@@ -34,6 +34,10 @@ $routes->setAutoRoute(true);
 
 $routes->get('/create/(:alphanum)', 'Home::createAccountPage/$1');
 $routes->get('/inloggen', 'Home::index');
+$routes->get('/playlist', 'playlist::Homepage');
+$routes->get('/showSong/(:alphanum)', "playlist::song/$1");
+$routes->get("/playlistgen/(:alphanum)", "playlist::oneGen/$1");
+$routes->get('/uitloggen', 'playlist::uitloggen');
 
 /*
  * --------------------------------------------------------------------

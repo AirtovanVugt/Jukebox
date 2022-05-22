@@ -10,6 +10,11 @@ body{
     width: 100%;
 }
 
+a{
+    color: white;
+    text-decoration: none;
+}
+
 #warning{
     background-color: red;
     text-align: center;
@@ -32,6 +37,60 @@ body{
 
 .hoofdLetters{
     text-transform: uppercase;
+}
+
+.hoofdPagH{
+    display: flex;
+    background-color: black;
+    height: 50px;
+    margin-bottom: 10px;
+
+    .gebruiker{
+        color: white;
+        margin: auto 0;
+        margin-left: 20px;
+    }
+
+    .uitloggen{
+        color: white;
+        text-decoration: none;
+        margin: auto auto;
+        margin-right: 20px;
+    }
+}
+
+.container{
+    display: flex;
+    padding: 0px 20px;
+
+    .playlistSide{
+        max-width: 350px;
+        color: white;
+    }
+
+    .songsSide{
+        text-align: center;
+        width: calc(100% - 370px);
+
+
+        .songblock{
+            background-color: blue;
+            margin: 0 40px;
+            margin-top: 10px;
+            color: white;
+            text-decoration: none;
+            
+        }
+    }
+
+    .chooseGenre{
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.white{
+    color: white;
 }
 
 @import "inloggen";

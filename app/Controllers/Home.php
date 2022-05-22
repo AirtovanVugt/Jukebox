@@ -14,7 +14,6 @@ class Home extends BaseController{
 
     public function inloggen(){
         $model = new \App\Models\getUsers;
-        $session = session();
         $user = $model->where("UserName", $this->request->getPost("UserName"))
                       ->where("Password", $this->request->getPost("Password"))
                       ->first();
@@ -22,13 +21,11 @@ class Home extends BaseController{
             return redirect()->back()
                              ->with("warning", "This user doesn't exist.")
                              ->withInput();
-            $session_destroy();
         }
         else{
-            $session->set("id", $user["UserId"]);
+            session()->set("id", $user["UserId"]);
+            return redirect()->to("/playlist");
         }
-        
-
     }
 
     public function createAccount(){
