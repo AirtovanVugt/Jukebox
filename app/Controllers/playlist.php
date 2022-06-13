@@ -16,7 +16,7 @@ class playlist extends BaseController{
                            ->getResult();
 
         $genres = $genremodel->get()
-                            ->getResult();
+                             ->getResult();
 
         return view("playlist", ["songs" => $songs, "genres" => $genres]);
     }
