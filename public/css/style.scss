@@ -15,6 +15,15 @@ a{
     text-decoration: none;
 }
 
+.muziekInplaylist{
+    background-color: white;
+    position: absolute;
+    width: 400px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 50%);
+}
+
 #warning{
     background-color: red;
     text-align: center;
@@ -64,8 +73,34 @@ a{
     padding: 0px 20px;
 
     .playlistSide{
-        max-width: 350px;
-        color: white;
+        min-width: 350px;
+        box-sizing: border-box;
+        
+        .Playlist{
+            padding: 10px 0px;
+            text-align: center;
+            width: 350px;
+            background-color: white;
+            margin: 0 auto;
+            border-radius: 20px;
+
+            .namePlaylist{
+                margin-top: 5px;
+            }
+
+            .createPlaylist{
+                margin-top: 10px;
+
+                input{
+                    margin-top: 5px;
+                    width: 80%;
+                    box-sizing: border-box;
+                }
+            }
+
+
+        }
+
     }
 
     .songsSide{
@@ -79,7 +114,18 @@ a{
             margin-top: 10px;
             color: white;
             text-decoration: none;
-            
+            position: relative;
+        }
+
+        .playlistZetten{
+            height: 8px;
+            width: 8px;
+            background-color: white;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            margin-right: 10px;
         }
     }
 

@@ -1,15 +1,9 @@
 header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 header .uitloggen {
   color: white;
   text-decoration: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin: auto 0;
-}
-/*# sourceMappingURL=playlist.css.map */
+}/*# sourceMappingURL=playlist.css.map */

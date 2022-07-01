@@ -2,46 +2,37 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   background: rgba(14, 108, 61, 0.297);
   width: 700px;
   padding: 20px;
   border-radius: 20px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 .inloggen h1 {
   text-align: center;
 }
-
 .inloggen label {
   margin-bottom: 2px;
   margin-top: 20px;
 }
-
 .inloggen input {
   width: 100%;
   padding: 5px;
   border-radius: 20px;
   border: 2px black solid;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding-left: 12px;
 }
-
 .inloggen h1, .inloggen label {
-  color: #d2d1d1;
+  color: rgb(210, 209, 209);
   display: block;
 }
-
 .inloggen button {
-  background-color: #247424;
+  background-color: rgb(36, 116, 36);
   color: white;
   margin-top: 20px;
   border-radius: 20px;
   padding: 5px 20px;
   border: 2px black solid;
-}
-/*# sourceMappingURL=inloggen.css.map */
+}/*# sourceMappingURL=inloggen.css.map */

@@ -15,33 +15,33 @@ a {
   text-decoration: none;
 }
 
+.muziekInplaylist {
+  background-color: white;
+  position: absolute;
+  width: 400px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 50%);
+}
+
 #warning {
   background-color: red;
   text-align: center;
   padding: 10px 20px;
   position: absolute;
   left: 50%;
-  -webkit-transform: translate(-50%, -100%);
-          transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%);
   border-radius: 20px;
-  -webkit-transition: -webkit-transform 1s;
-  transition: -webkit-transform 1s;
   transition: transform 1s;
-  transition: transform 1s, -webkit-transform 1s;
 }
 
 #warning.warningShow {
-  -webkit-transform: translate(-50%, 10px);
-          transform: translate(-50%, 10px);
+  transform: translate(-50%, 10px);
 }
 
 .centerV {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .hoofdLetters {
@@ -49,20 +49,16 @@ a {
 }
 
 .hoofdPagH {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   background-color: black;
   height: 50px;
   margin-bottom: 10px;
 }
-
 .hoofdPagH .gebruiker {
   color: white;
   margin: auto 0;
   margin-left: 20px;
 }
-
 .hoofdPagH .uitloggen {
   color: white;
   text-decoration: none;
@@ -71,30 +67,54 @@ a {
 }
 
 .container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   padding: 0px 20px;
 }
-
 .container .playlistSide {
-  max-width: 350px;
-  color: white;
+  min-width: 350px;
+  box-sizing: border-box;
 }
-
+.container .playlistSide .Playlist {
+  padding: 10px 0px;
+  text-align: center;
+  width: 350px;
+  background-color: white;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+.container .playlistSide .Playlist .namePlaylist {
+  margin-top: 5px;
+}
+.container .playlistSide .Playlist .createPlaylist {
+  margin-top: 10px;
+}
+.container .playlistSide .Playlist .createPlaylist input {
+  margin-top: 5px;
+  width: 80%;
+  box-sizing: border-box;
+}
 .container .songsSide {
   text-align: center;
   width: calc(100% - 370px);
 }
-
 .container .songsSide .songblock {
   background-color: blue;
   margin: 0 40px;
   margin-top: 10px;
   color: white;
   text-decoration: none;
+  position: relative;
 }
-
+.container .songsSide .playlistZetten {
+  height: 8px;
+  width: 8px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  margin-right: 10px;
+}
 .container .chooseGenre {
   color: white;
   text-decoration: none;
@@ -108,46 +128,37 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   background: rgba(14, 108, 61, 0.297);
   width: 700px;
   padding: 20px;
   border-radius: 20px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 .inloggen h1 {
   text-align: center;
 }
-
 .inloggen label {
   margin-bottom: 2px;
   margin-top: 20px;
 }
-
 .inloggen input {
   width: 100%;
   padding: 5px;
   border-radius: 20px;
   border: 2px black solid;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding-left: 12px;
 }
-
 .inloggen h1, .inloggen label {
-  color: #d2d1d1;
+  color: rgb(210, 209, 209);
   display: block;
 }
-
 .inloggen button {
-  background-color: #247424;
+  background-color: rgb(36, 116, 36);
   color: white;
   margin-top: 20px;
   border-radius: 20px;
   padding: 5px 20px;
   border: 2px black solid;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
