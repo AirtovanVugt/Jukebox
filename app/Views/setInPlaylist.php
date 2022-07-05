@@ -14,9 +14,11 @@
     <?php } ?>
     <br>
     <input type="submit">
+ 
     </form>
 </div>
 <a class="white" href="/playlist">back</a>
+<p class="white"><?php var_dump(session()->get("song")) ?></p>
 </body>
 </html>
 

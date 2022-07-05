@@ -13,6 +13,7 @@ class Home extends BaseController{
     }
 
     public function inloggen(){
+
         $model = new \App\Models\getUsers;
         $user = $model->where("UserName", $this->request->getPost("UserName"))
                       ->where("Password", $this->request->getPost("Password"))

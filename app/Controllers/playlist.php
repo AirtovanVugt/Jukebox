@@ -46,6 +46,7 @@ class playlist extends BaseController{
         $playlistmodel= new \App\Models\getPlaylist;
         $songinplaylistmodel = new \App\Models\getSongsInPlaylist;
 
+
         $songs = $songmodel->where("GenreId", $genId)
                            ->get()
                            ->getResult();
@@ -66,7 +67,6 @@ class playlist extends BaseController{
 
     public function createplaylist(){
         $playlistmodel = new \App\Models\getplaylist;
-
         $check = $playlistmodel->where("namePlaylist", $this->request->getPost("namePlaylist"))
                       ->first();
         if($check == null && !empty($this->request->getPost("namePlaylist"))){
