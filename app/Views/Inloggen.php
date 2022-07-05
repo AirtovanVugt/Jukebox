@@ -39,14 +39,4 @@
 </body>
 </html>
 
-<script>
-    var warning = document.getElementById("warning");
-
-    if(warning != null){
-        warning.classList.add("warningShow");
-
-        setTimeout(function(){
-            warning.classList.remove("warningShow");
-        }, 5000);
-    }
-</script>
+<script src="<?php echo base_url('js/warning.js'); ?>"></script>

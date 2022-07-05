@@ -37,8 +37,9 @@ $routes->get('/inloggen', 'Home::index');
 $routes->get('/playlist', 'playlist::Homepage');
 $routes->get('/showSong/(:alphanum)', "playlist::song/$1");
 $routes->get("/playlistgen/(:alphanum)", "playlist::oneGen/$1");
+$routes->get("/setInPlaylist/(:alphanum)", "playlist::setInPlaylist/$1");
+$routes->get("/deleteSong/(:alphanum)", "playlist::deleteSong/$1");
 $routes->get('/uitloggen', 'playlist::uitloggen');
-
 
 /*
  * --------------------------------------------------------------------

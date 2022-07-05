@@ -1,26 +1,15 @@
 <?= $this->include('layouts/header') ?>
+<?= $this->include('layouts/headpageHeader') ?>
 
-<div class="muziekInplaylist" id="muziekInplaylist">
-     <?php
 
-          foreach($playlist as $count => $playlists){
-     ?>
-          <label><?php echo $playlists["namePlaylist"]; ?></label>
-          <input type="checkbox" name=""><br>
-     <?php } ?>
-</div>
 
-<header class="hoofdPagH">
-     <p class="gebruiker">welkom <?= current_user()["UserName"]; ?></p>
-     <a class="uitloggen" href="/uitloggen">Uitloggen</a>
-</header>
 
 <div class="container">
      <div class="playlistSide">
           <div class="Playlist">
                <p>je Playlists</p>
                <?php foreach($playlist as $count => $playlists){ ?>
-                    <p class="namePlaylist"><?php echo $playlists["namePlaylist"]; ?></p>
+                    <p class="namePlaylist" id="<?php echo $playlists["playlistId"]; ?>"><?php echo $playlists["namePlaylist"]; ?></p>
                <?php } ?>
                <div class="createPlaylist">
                     <?php
@@ -43,7 +32,9 @@
                               <p><?= $song->nameSong; ?></p>
                          </div>
                     </a>
-                    <div class="playlistZetten" id="showmuziekInplaylist<?php echo $count ?>"></div>
+                    <a href="/setInPlaylist/<?= $song->id ?>">
+                         <div class="playlistZetten"></div>
+                    </a>
                </div>
           <?php
                }
@@ -60,18 +51,40 @@
           </ul>
      </div>
 </div>
+     <div class="playlistSection">
+          <h1 class="white" id="titleplaylist"></h1>
+          <div id="theList">
+
+          </div>
+     </div>
+</div>
 </body>
 </html>
+<script src="<?php echo base_url('js/warning.js'); ?>"></script>
 
 <script>
-     var muziekInplaylist = document.getElementById("muziekInplaylist");
-     var liedjes = <?= json_encode($songs); ?>
+     var playlists = <?php echo json_encode($playlist) ?>;
+     var songs = <?php echo json_encode($songs) ?>;
+     var songsinplaylist = <?php echo json_encode($songinplaylist) ?>;
+     console.log(songs, playlists, songsinplaylist);
 
-     console.log(liedjes);
-
-     for(let i=0; i<=liedjes.length-1; i++){
-          document.getElementById("showmuziekInplaylist" + i).onclick = function(){
-
+     for(let i=0; i<=playlists.length-1; i++){
+          document.getElementById(playlists[i]["playlistId"]).onclick = function(){
+               document.getElementById("titleplaylist").innerHTML = playlists[i]["namePlaylist"];
+               var theList = document.getElementById("theList");
+               theList.innerHTML = "";
+               for(let t=0; t<=songsinplaylist.length-1; t++){
+                    if(playlists[i]["playlistId"] == songsinplaylist[t]["playlistId"]){
+                         var iets = songsinplaylist[t];
+                         console.log(iets);
+                         var a = document.createElement('a');
+                         var breken = document.createElement("br");
+                         a.innerText = songs[t]["nameSong"];
+                         a.href = "/deleteSong/" + songsinplaylist[t]["songPlaylistId"];
+                         theList.appendChild(a);
+                         theList.appendChild(breken);
+                    }
+               }
           }
      }
 
