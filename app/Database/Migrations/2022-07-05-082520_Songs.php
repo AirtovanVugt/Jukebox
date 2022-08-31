@@ -15,6 +15,10 @@ class Songs extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true
             ],
+            "artist" => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 255
+            ],
             "nameSong" => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 255
@@ -22,9 +26,9 @@ class Songs extends Migration
             "lyrics" => [
                 'type'           => 'TEXT'
             ],
-            "tijd" => [
+            "time" => [
                 'type'           => 'VARCHAR',
-                'constraint'     => 255
+                'constraint'     => 5
             ],
             "genreId" => [
                 'type'           => 'INT',

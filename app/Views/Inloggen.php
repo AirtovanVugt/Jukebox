@@ -26,10 +26,10 @@
         }
     ?>
         <label class="label" for="UserName">Name</label>
-        <input class="input" type="text" name="UserName">
+        <input class="input" type="text" name="username">
 
         <label class="label" for="Name">Password</label>
-        <input class="input" type="password" name="Password">
+        <input class="input" type="password" name="password">
 
         <div class="centerV">
             <button class="hoofdLetters"><?php if(isset($create)){ ?> create account <?php } else{ ?> inloggen <?php } ?></button>

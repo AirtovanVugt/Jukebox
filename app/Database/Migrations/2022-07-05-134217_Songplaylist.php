@@ -26,6 +26,14 @@ class Songplaylist extends Migration
             "songId" => [
                 'type'           => 'INT',
                 'constraint'     => 11
+            ],
+            "nameSong" => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 255
+            ],
+            "time" => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 5
             ]
         ]);
         $this->forge->addPrimaryKey("songplaylistId");

@@ -73,6 +73,21 @@ a {
   margin: 0 auto;
   border-radius: 20px;
 }
+.container .playlistSide .Playlist .opgeslagenplaylisten {
+  margin-top: 10px;
+}
+.container .playlistSide .Playlist .opgeslagenplaylisten .liedjesvanPlaylist {
+  display: none;
+}
+.container .playlistSide .Playlist .opgeslagenplaylisten form {
+  margin-top: 10px;
+}
+.container .playlistSide .Playlist .opgeslagenplaylisten h4 {
+  margin-top: 5px;
+}
+.container .playlistSide .Playlist a {
+  color: black;
+}
 .container .playlistSide .Playlist .namePlaylist {
   margin-top: 5px;
 }
@@ -128,6 +143,40 @@ a {
 .bigCard label {
   margin-top: 5px;
   font-size: 24px;
+}
+
+.backgroundplaylistSection {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  z-index: 2;
+  display: none;
+}
+.backgroundplaylistSection .playlistSection {
+  position: absolute;
+  width: 500px;
+  height: 300px;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+}
+.backgroundplaylistSection .playlistSection h1 {
+  text-align: center;
+}
+.backgroundplaylistSection .playlistSection #closeSection {
+  display: block;
+  text-align: center;
+}
+.backgroundplaylistSection .playlistSection a {
+  color: black;
+  margin-left: 5px;
+  margin-top: 5px;
 }
 
 .inloggen {

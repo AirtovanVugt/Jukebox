@@ -6,5 +6,5 @@ class getSongs extends \CodeIgniter\Model{
 
     protected $table = "songs";
 
-    protected $allowedFields = ["id", "nameSong", "lyrics", "GenreId"];
+    protected $allowedFields = ["nameSong", "lyrics", "time", "GenreId"];
 }

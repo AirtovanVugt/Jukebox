@@ -6,5 +6,5 @@ class getGenres extends \CodeIgniter\Model{
 
     protected $table = "genres";
 
-    protected $allowedFields = ["Genre"];
+    protected $allowedFields = ["genre"];
 }

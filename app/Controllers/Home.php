@@ -15,8 +15,8 @@ class Home extends BaseController{
     public function inloggen(){
 
         $model = new \App\Models\getUsers;
-        $user = $model->where("UserName", $this->request->getPost("UserName"))
-                      ->where("Password", $this->request->getPost("Password"))
+        $user = $model->where("UserName", $this->request->getPost("username"))
+                      ->where("Password", $this->request->getPost("password"))
                       ->first();
         if($user == null){
             return redirect()->back()
@@ -24,7 +24,8 @@ class Home extends BaseController{
                              ->withInput();
         }
         else{
-            session()->set("id", $user["UserId"]);
+            session()->set("id", $user["userId"]);
+            session()->set("playlist", []);
             return redirect()->to("/playlist");
         }
     }
@@ -32,16 +33,18 @@ class Home extends BaseController{
     public function createAccount(){
         $model = new \App\Models\getUsers;
 
-        $username = $model->where("UserName", $this->request->getPost("UserName"))
+        $username = $model->where("username", $this->request->getPost("username"))
                           ->first();
-        $password = $model->where("Password", $this->request->getPost("Password"))
+        $password = $model->where("password", $this->request->getPost("password"))
                           ->first();
-        if($password != null && $username != null){
+
+
+        if($username != NULL || $password != NULL){
             return redirect()->back()
                              ->with("warning", "This username or password is already in use.")
                              ->withInput();
         }
-        elseif(empty($username) || empty($password)){
+        elseif(empty($this->request->getPost("username")) || empty($this->request->getPost("password"))){
             return redirect()->back()
                              ->with("warning", "Username or password may not stay empty.")
                              ->withInput();

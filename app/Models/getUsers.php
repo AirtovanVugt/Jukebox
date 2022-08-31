@@ -6,5 +6,5 @@ class getUsers extends \CodeIgniter\Model{
 
     protected $table = "Users";
 
-    protected $allowedFields = ["UserName", "Password"];
+    protected $allowedFields = ["username", "password"];
 }

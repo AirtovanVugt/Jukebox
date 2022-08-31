@@ -15,7 +15,7 @@ class Playlists extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true
             ],
-            "namePlaylist" => [
+            "namePlaylists" => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 255
             ],

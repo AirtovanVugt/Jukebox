@@ -13,11 +13,11 @@ class Genres extends Migration
                 'type'           => 'INT',
                 'constraint'     => 11,
                 'unsigned'       => true,
-                'auto_increment' => true,
+                'auto_increment' => true
             ],
             'genre' => [
                 'type'           => 'VARCHAR',
-                'constraint'     => 255,
+                'constraint'     => 255
             ]
         ]);
         $this->forge->addPrimaryKey("genreId");
