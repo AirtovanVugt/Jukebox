@@ -76,31 +76,16 @@ class playlist extends BaseController{
         return redirect()->back();
     }
 
-    public function setInSession($songId){
-        $songmodel = new \App\Models\getSongs;
-
-        session()->push("playlist", [$songId]);
-
-        return redirect()->back();
-    }
-
-    public function removeInSession($remove){
-        $thearray = session()->get("playlist");
-        unset($thearray[$remove]);
-        session()->set("playlist", $thearray);
-        return redirect()->back();
-    }
-
     public function setInPlaylist(){
         $songmodel = new \App\Models\getSongs;
         $playlistmodel = new \App\Models\getPlaylist;
         $SongsInPlaylist = new \App\Models\getSongsInPlaylist;
-
+        
         $exist = $playlistmodel->where("namePlaylist", $this->request->getPost("namePlaylist"))
                                ->where("userId", $this->currentuser["userId"])
                                ->first();
 
-        if($exist != NULL || empty($this->request->getPost("namePlaylist")) || empty(session()->get("playlist"))){
+        if($exist != NULL || empty($this->request->getPost("namePlaylist"))){
             return redirect()->back()
                              ->with("warning", "this name allready exist or this field or playlist is empty.")
                              ->withInput();
@@ -182,6 +167,6 @@ class playlist extends BaseController{
 
     public function uitloggen(){
         session()->destroy();
-        return view("inloggen");
+        return redirect()->to("/inloggen");
     }
 }

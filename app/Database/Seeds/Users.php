@@ -10,8 +10,8 @@ class users extends Seeder
     {
         $data = [
                     [
-                    'username' => 'Airto',
-                    'password'    => 'qqaaa'
+                        'username' => 'Airto',
+                        'password'    => 'qqaaa'
                     ],
                     [
                         'username' => 'Joran',
