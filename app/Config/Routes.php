@@ -37,15 +37,15 @@ $routes->get('/inloggen', 'Home::index');
 $routes->get('/playlist', 'playlist::Homepage');
 $routes->get('/setInSession/(:alphanum)', 'session::setInSession/$1');
 $routes->get('/removeInSession/(:alphanum)', 'session::removeInSession/$1');
-$routes->post('/createPlaylist', 'playlist::setInPlaylist');
+$routes->post('/createPlaylist', 'session::setInPlaylist');
 $routes->get('/deletePlaylist/(:alphanum)', 'playlist::deletePlaylist/$1');
 $routes->post('/changPlaylisname', 'playlist::changePlaylistname');
-$routes->get('/oneGenre/(:alphanum)', 'playlist::oneGenre/$1');
+$routes->get('/oneGenre/(:alphanum)', 'session::oneGenre/$1');
 $routes->get('/removesongInPlaylist/(:alphanum)', 'playlist::removesongInPlaylist/$1');
 $routes->get('/showSong/(:alphanum)', 'playlist::song/$1');
 $routes->get('/setsongInPlaylist/(:alphanum)/(:alphanum)', 'playlist::setsonginPlaylist/$1/$2');
 $routes->get("/deleteSong/(:alphanum)", "playlist::deleteSong/$1");
-$routes->get('/uitloggen', 'playlist::uitloggen');
+$routes->get('/uitloggen', 'Home::uitloggen');
 
 /*
  * --------------------------------------------------------------------

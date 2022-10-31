@@ -53,7 +53,10 @@ class Home extends BaseController{
             $model->insert($this->request->getPost());
             return redirect()->to("/inloggen");
         }
+    }
 
-
+    public function uitloggen(){
+        session()->destroy();
+        return redirect()->to("/inloggen");
     }
 }

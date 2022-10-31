@@ -10,6 +10,7 @@ class playlist extends BaseController{
     }
 
     public function Homepage(){
+        helper("sessionPlaylist");
         $songmodel = new \App\Models\getSongs;
         $genremodel = new \App\Models\getGenres;
         $playlistmodel= new \App\Models\getPlaylist;
@@ -37,72 +38,11 @@ class playlist extends BaseController{
                                               ->get()
                                               ->getResult();
 
-        $theSession = session()->get("playlist");
-        if(!empty($theSession)){
-            $theMinutes = [];
-            $theSecondes = [];
-            $data = [];
-            foreach($theSession as $count => $songId){
-                $song = $songmodel->where("songId", $songId)
-                                  ->first();
-                $data[$count] = $song["nameSong"];
-                $thetime = explode(":", $song["time"]);
-                $minutes = $thetime["0"];
-                $secondes = $thetime["1"];
-                $theMinutes[$count] = $minutes;
-                $theSecondes[$count] = $secondes;
-            }
-            $sessionSongs = array_replace($theSession, $data);
-            $minutes = array_sum($theMinutes);
-            $secondes = array_sum($theSecondes);
-            if($secondes >= 59){
-                while($secondes >= 59){
-                    $secondes = $secondes-60;
-                    $minutes++;
-                }
-            }
-            $sessiontime = ["minutes" => $minutes, "secondes" => $secondes];
-        }
-        else{
-            $sessionSongs = [];
-            $sessiontime = ["minutes" => "00", "secondes" => "00"];
-        }
+        $sessionPlaylist = sessionPlaylist();
+        $sessionSongs = $sessionPlaylist["0"];
+        $sessiontime = $sessionPlaylist["1"];
 
         return view("playlist", ["songs" => $songs, "genres" => $genres, "playlist" => $playlist, "songinplaylist" => $songinplaylist, "sessionSongs" => $sessionSongs, "sessiontime" => $sessiontime]);
-    }
-
-    public function oneGenre($genreId){
-        session()->set("genre", $genreId);
-        return redirect()->back();
-    }
-
-    public function setInPlaylist(){
-        $songmodel = new \App\Models\getSongs;
-        $playlistmodel = new \App\Models\getPlaylist;
-        $SongsInPlaylist = new \App\Models\getSongsInPlaylist;
-        
-        $exist = $playlistmodel->where("namePlaylist", $this->request->getPost("namePlaylist"))
-                               ->where("userId", $this->currentuser["userId"])
-                               ->first();
-
-        if($exist != NULL || empty($this->request->getPost("namePlaylist"))){
-            return redirect()->back()
-                             ->with("warning", "this name allready exist or this field or playlist is empty.")
-                             ->withInput();
-        }
-        else{
-            $playlistmodel->insert(["namePlaylist" => $this->request->getPost("namePlaylist"), "userId" => $this->currentuser["userId"]]);
-            $getplaylistId = $playlistmodel->where("namePlaylist", $this->request->getPost("namePlaylist"))
-                                           ->first();
-            foreach(session()->get("playlist") as $count => $songId){
-                $song = $songmodel->where("songId", $songId)
-                                   ->first();
-                $SongsInPlaylist->insert(["userId" => $this->currentuser["userId"], "songId" => $songId, "playlistId" => $getplaylistId["playlistId"], "nameSong" => $song["nameSong"], "time" => $song["time"]]);
-            }   
-            session()->remove("playlist");
-            session()->set("playlist", []);
-            return redirect()->back();
-        }
     }
 
     public function changePlaylistname(){
@@ -163,10 +103,5 @@ class playlist extends BaseController{
                           ->first();
 
         return view("lyrics", ["song" => $song]);
-    }
-
-    public function uitloggen(){
-        session()->destroy();
-        return redirect()->to("/inloggen");
     }
 }
