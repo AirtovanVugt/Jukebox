@@ -37,7 +37,7 @@ $routes->get('/inloggen', 'Home::index');
 $routes->get('/playlist', 'playlist::Homepage');
 $routes->get('/setInSession/(:alphanum)', 'session::setInSession/$1');
 $routes->get('/removeInSession/(:alphanum)', 'session::removeInSession/$1');
-$routes->post('/createPlaylist', 'session::setInPlaylist');
+$routes->post('/createPlaylist', 'playlist::setInPlaylist');
 $routes->get('/deletePlaylist/(:alphanum)', 'playlist::deletePlaylist/$1');
 $routes->post('/changPlaylisname', 'playlist::changePlaylistname');
 $routes->get('/oneGenre/(:alphanum)', 'session::oneGenre/$1');

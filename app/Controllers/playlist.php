@@ -11,6 +11,7 @@ class playlist extends BaseController{
 
     public function Homepage(){
         helper("sessionPlaylist");
+
         $songmodel = new \App\Models\getSongs;
         $genremodel = new \App\Models\getGenres;
         $playlistmodel= new \App\Models\getPlaylist;
@@ -18,7 +19,7 @@ class playlist extends BaseController{
 
         $sessionController = new \App\Controllers\session;
 
-        $songs = $sessionController->checkGanre();
+        $songs = $sessionController->checkGenre();
 
         $genres = $genremodel->get()
                              ->getResult();
@@ -37,6 +38,20 @@ class playlist extends BaseController{
 
         return view("playlist", ["songs" => $songs, "genres" => $genres, "playlist" => $playlist, "songinplaylist" => $songinplaylist, "sessionSongs" => $sessionSongs, "sessiontime" => $sessiontime]);
     }
+
+    public function setInPlaylist(){
+        $playlistmodel = new \App\Models\getPlaylist;
+
+        $sessionController = new \App\Controllers\session;
+        
+        $exist = $playlistmodel->where("namePlaylist", $this->request->getPost("namePlaylist"))
+                               ->where("userId", $this->currentuser["userId"])
+                               ->first();
+
+        $sessionController->setPlaylistInDatabase($exist, $this->request->getPost());
+    
+            return redirect()->back();
+        }
 
     public function changePlaylistname(){
         $playlistmodel = new \App\Models\getPlaylist;
