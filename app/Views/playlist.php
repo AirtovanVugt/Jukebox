@@ -126,7 +126,16 @@
                     totalmin++;
                }
           }
-          document.getElementById("timePlaylist" + playlists[i]["playlistId"]).innerText = "deze playlist duurt " + totalmin + ":" + totalsec;
+          if(totalmin == 0 && totalsec == 0){
+               document.getElementById("timePlaylist" + playlists[i]["playlistId"]).innerText = "deze playlist duurt " + totalmin + "0:0" + totalsec;
+          }
+          else if(totalsec <= 9){
+               document.getElementById("timePlaylist" + playlists[i]["playlistId"]).innerText = "deze playlist duurt " + totalmin + ":0" + totalsec;
+          }
+          else{
+               document.getElementById("timePlaylist" + playlists[i]["playlistId"]).innerText = "deze playlist duurt " + totalmin + ":" + totalsec;
+          }
+          
           minutes = [];
           secondes = [];
           totalmin = 0;
