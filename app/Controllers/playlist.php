@@ -15,17 +15,10 @@ class playlist extends BaseController{
         $genremodel = new \App\Models\getGenres;
         $playlistmodel= new \App\Models\getPlaylist;
         $songinplaylistmodel = new \App\Models\getSongsInPlaylist;
-    
-        if(session()->get("genre") != NULL && session()->get("genre") >= "1"){
-            $songs = $songmodel->where("genreId", session()->get("genre"))
-                               ->get()
-                               ->getResult();
-        }
-        else{
-            $songs = $songmodel->get()
-                               ->getResult();
-        }
 
+        $sessionController = new \App\Controllers\session;
+
+        $songs = $sessionController->checkGanre();
 
         $genres = $genremodel->get()
                              ->getResult();

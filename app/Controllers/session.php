@@ -57,4 +57,20 @@ class session extends BaseController{
             return redirect()->back();
         }
     }
+
+    public function checkGanre(){
+        $songmodel = new \App\Models\getSongs;
+
+        if(session()->get("genre") != NULL && session()->get("genre") >= "1"){
+            $songs = $songmodel->where("genreId", session()->get("genre"))
+                               ->get()
+                               ->getResult();
+            return $songs;
+        }
+        else{
+            $songs = $songmodel->get()
+                               ->getResult();
+            return $songs;
+        }
+    }
 }
