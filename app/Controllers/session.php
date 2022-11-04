@@ -13,21 +13,20 @@ class session extends BaseController{
         $songmodel = new \App\Models\getSongs;
 
         session()->push("playlist", [$songId]);
-
-        return redirect()->back();
     }
+    //set the song in the session playlist
 
-    public function removeInSession($remove){
+    public function removeInSession($removeSong){
         $thearray = session()->get("playlist");
-        unset($thearray[$remove]);
+        unset($thearray[$removeSong]);
         session()->set("playlist", $thearray);
-        return redirect()->back();
     }
+    //remove the song in the session playlist
 
-    public function oneGenre($genreId){
+    public function setGenreId($genreId){
         session()->set("genre", $genreId);
-        return redirect()->back();
     }
+    //set genre ID in session
 
     public function checkGenre(){
         $songmodel = new \App\Models\getSongs;
@@ -44,6 +43,7 @@ class session extends BaseController{
             return $songs;
         }
     }
+    //check what genre it is
 
     public function setPlaylistInDatabase($exist, $thePost){
         $songmodel = new \App\Models\getSongs;
@@ -68,4 +68,5 @@ class session extends BaseController{
             session()->set("playlist", []);
         }
     }
+    //set the session playlist in the database
 }

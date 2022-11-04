@@ -32,7 +32,7 @@
                <?php
                     echo form_open("/createPlaylist");
                ?>
-                    <labe>Maak de playlist aan</label>
+                    <label>Maak de playlist aan</label>
                     <input type="text" name="namePlaylist">
                     <input type="submit" value="aanmaken">
                     </form>
